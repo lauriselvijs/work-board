@@ -1,0 +1,21 @@
+@layer components {
+    .input {
+        @apply border-primary-very-dark shadow-sm focus:border-primary focus:ring-primary primary-text;
+    }
+
+    .primary-text-input {
+        @apply input rounded-md;
+    }
+
+    .primary-checkbox {
+        @apply input rounded-sm;
+    }
+
+    .primary-input-label {
+        @apply block font-medium text-sm primary-text;
+    }
+
+    .primary-input-error {
+        @apply text-sm text-error font-normal;
+    }
+}

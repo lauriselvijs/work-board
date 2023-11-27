@@ -1,0 +1,5 @@
+@layer components {
+    .card {
+        @apply p-8 shadow-md overflow-hidden rounded-lg;
+    }
+}

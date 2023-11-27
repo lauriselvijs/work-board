@@ -1,0 +1,27 @@
+@layer base {
+    h1 {
+        @apply text-2xl font-semibold;
+    }
+    h2 {
+        @apply text-xl;
+    }
+    h3 {
+        @apply text-lg;
+    }
+}
+
+@layer components {
+    .primary-text {
+        @apply text-base text-dark font-normal;
+    }
+    .secondary-text {
+        @apply primary-text text-light;
+    }
+
+    .primary-text-sm {
+        @apply text-sm text-dark font-normal;
+    }
+    .secondary-text-sm {
+        @apply primary-text-sm text-light;
+    }
+}

@@ -1,0 +1,19 @@
+@use "resets";
+
+@layer base {
+    // :root {
+    //     --color-primary-very-light: 330 24% 97%;
+    //     --color-primary-light: 325 37% 88%;
+    //     --color-primary: 325 37% 88%;
+    //     --color-primary-dark: 331 30% 40%;
+    //     --color-primary-very-dark: 336 40% 18%;
+    // }
+
+    body {
+        @apply bg-primary-very-light primary-text leading-normal;
+    }
+
+    #app {
+        @apply h-fit flex flex-col;
+    }
+}

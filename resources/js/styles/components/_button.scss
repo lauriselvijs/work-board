@@ -1,0 +1,85 @@
+@layer components {
+    .disabled-btn {
+        @apply cursor-not-allowed opacity-50;
+    }
+
+    .btn {
+        @apply px-8 py-2 text-base font-normal rounded-md text-center cursor-pointer;
+
+        &:disabled {
+            @apply disabled-btn;
+        }
+    }
+
+    .trans-btn {
+        @apply font-normal text-center cursor-pointer bg-transparent;
+
+        &:disabled {
+            @apply disabled-btn;
+        }
+    }
+
+    .primary-btn {
+        @apply bg-primary text-light btn;
+
+        &:hover {
+            @apply bg-primary-dark;
+        }
+
+        &:active {
+            @apply bg-primary-very-dark;
+        }
+
+        &:disabled {
+            @apply bg-primary-light text-primary-dark;
+        }
+    }
+
+    .primary-btn-trans {
+        @apply text-base text-dark trans-btn;
+
+        &:hover {
+            @apply text-primary;
+        }
+
+        &:active {
+            @apply text-primary-dark;
+        }
+
+        &:disabled {
+            @apply text-primary-very-light;
+        }
+    }
+
+    .secondary-btn {
+        @apply bg-light text-primary-dark border-2 border-primary-dark btn;
+
+        &:hover {
+            @apply bg-primary-very-light;
+        }
+
+        &:active {
+            @apply bg-primary-light;
+        }
+
+        &:disabled {
+            @apply bg-light;
+        }
+    }
+
+    .secondary-btn-trans {
+        @apply text-base text-light trans-btn;
+
+        &:hover {
+            @apply text-primary;
+        }
+
+        &:active {
+            @apply text-primary-dark;
+        }
+
+        &:disabled {
+            @apply text-primary-very-dark;
+        }
+    }
+}
