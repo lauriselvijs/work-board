@@ -15,8 +15,8 @@ trait Authenticated
         return $employee;
     }
 
-    private function actingAsGuest(): void
+    public function actingAsGuest($guard = null): static
     {
-        Auth::logout();
+        return parent::actingAsGuest($guard);
     }
 }

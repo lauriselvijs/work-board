@@ -4,7 +4,7 @@
 ./vendor/bin/sail npm run tsc
 ./vendor/bin/sail npm run eslint:fix
 
-./vendor/bin/pint
+./vendor/bin/sail pint
 
 ./vendor/bin/sail test --coverage --profile
 ./vendor/bin/sail npm run test:coverage
