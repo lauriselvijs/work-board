@@ -8,6 +8,7 @@ use App\Models\Task;
 use App\Services\Task\TaskQueryParamsValidation;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Inertia\Testing\AssertableInertia as Assert;
+use PHPUnit\Framework\Attributes\DataProvider;
 use Tests\TestCase;
 use Tests\Traits\Authenticated;
 
@@ -21,12 +22,11 @@ class FilterTaskTest extends TestCase
     {
         parent::setUp();
 
+        // If your trait method doesn't have a return type, the property type keeps analyzers happy.
         $this->employee = $this->authenticateAsEmployee();
     }
 
-    /**
-     * @dataProvider provideTaskFilterData
-     */
+    #[DataProvider('provideTaskFilterData')]
     public function test_task_filter(string $queryKey, string $queryValue, string $taskTitle, int $taskCount): void
     {
         $secondTaskTitle = 'bbbb';
@@ -46,7 +46,7 @@ class FilterTaskTest extends TestCase
         )->assertOk();
     }
 
-    public static function provideTaskFilterData()
+    public static function provideTaskFilterData(): array
     {
         return [
             'Search by task title' => ['const.query_string.query_key', 'aaaa', 'aaaa', 1],
@@ -61,7 +61,9 @@ class FilterTaskTest extends TestCase
     {
         Task::factory()->createOne(['assigned_to' => null]);
 
-        $query = http_build_query([TaskQueryParamsValidation::ASSIGNEES_FILTER_KEY => TaskQueryParamsValidation::UNSIGNED_TASKS]);
+        $query = http_build_query([
+            TaskQueryParamsValidation::ASSIGNEES_FILTER_KEY => TaskQueryParamsValidation::UNSIGNED_TASKS,
+        ]);
 
         $response = $this->get(route('employee.tasks', [$this->employee]).'?'.$query);
 
@@ -82,6 +84,7 @@ class FilterTaskTest extends TestCase
 
         Task::factory()->createOne(['title' => $secondTaskTitle, 'status' => $status]);
 
+        /** @var Employee $employee */
         $employee = $this->authenticateAsEmployee();
 
         Task::factory()->createOne(['title' => $firstTaskTitle, 'status' => $status]);
@@ -99,7 +102,6 @@ class FilterTaskTest extends TestCase
             config('const.query_string.sort_key') => $sortValue,
             config('const.query_string.order_key') => $sortOrder,
             TaskQueryParamsValidation::ASSIGNEES_FILTER_KEY => TaskQueryParamsValidation::BY_ASSIGNEE,
-
         ]);
 
         $response = $this->get(route('employee.tasks', [$employee]).'?'.$query);

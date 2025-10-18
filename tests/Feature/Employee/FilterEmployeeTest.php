@@ -8,6 +8,7 @@ use App\Services\Employee\EmployeeQueryParamsValidation;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Inertia\Testing\AssertableInertia as Assert;
+use PHPUnit\Framework\Attributes\DataProvider;
 use Tests\TestCase;
 use Tests\Traits\Authenticated;
 
@@ -15,9 +16,7 @@ class FilterEmployeeTest extends TestCase
 {
     use Authenticated, RefreshDatabase, WithFaker;
 
-    /**
-     * @dataProvider provideEmployeeFilterData
-     */
+    #[DataProvider('provideEmployeeFilterData')]
     public function test_employee_filter(string $queryKey, string $queryValue, string $employeeName, int $employeeCount): void
     {
         $secondEmployeeName = 'bbbb';
@@ -39,7 +38,7 @@ class FilterEmployeeTest extends TestCase
         )->assertOk();
     }
 
-    public static function provideEmployeeFilterData()
+    public static function provideEmployeeFilterData(): array
     {
         return [
             'Search by employee name' => ['const.query_string.query_key', 'aaaa', 'aaaa', 1],

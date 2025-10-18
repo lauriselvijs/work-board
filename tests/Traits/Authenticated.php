@@ -3,7 +3,6 @@
 namespace Tests\Traits;
 
 use App\Models\Employee;
-use Illuminate\Support\Facades\Auth;
 
 trait Authenticated
 {
