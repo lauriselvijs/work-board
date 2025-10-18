@@ -12,7 +12,7 @@ class DestroyEmployeeTest extends TestCase
 {
     use Authenticated, RefreshDatabase, WithFaker;
 
-    public function testShowPasswordOnDestroyEmployee(): void
+    public function test_show_password_on_destroy_employee(): void
     {
         $employee = $this->authenticateAsEmployee();
 
@@ -21,7 +21,7 @@ class DestroyEmployeeTest extends TestCase
         $response->assertRedirect(route('password.confirm'));
     }
 
-    public function testDestroyEmployeeAsGuestGetsRedirectedToLoginPage(): void
+    public function test_destroy_employee_as_guest_gets_redirected_to_login_page(): void
     {
         $employee = Employee::factory()->createOne();
 

@@ -18,4 +18,14 @@ export default defineConfig({
         globals: true,
         setupFiles: "resources/js/tests/setup.ts",
     },
+    build: {
+        rollupOptions: {
+            external: ["ziggy-js"],
+        },
+    },
+    server: {
+        hmr: {
+            host: "localhost", // tells browser to connect to localhost, not WSL2 IP
+        },
+    },
 });

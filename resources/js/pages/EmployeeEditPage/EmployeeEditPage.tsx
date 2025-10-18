@@ -1,4 +1,4 @@
-import { Head, router } from "@inertiajs/react";
+import { Head } from "@inertiajs/react";
 
 import Button from "@/components/Button";
 import { PageProps } from "@/types";
@@ -8,8 +8,6 @@ import PhoneNumberInput from "@/components/PhoneNumberInput";
 import Select from "@/components/Select";
 import { roles } from "@/config/employee";
 import { useEmployeeForm } from "@/hooks/useEmployeeForm";
-import ToggleButton from "@/components/ToggleButton";
-import { useToggle } from "react-use";
 import InputLabel from "@/components/InputLabel";
 import TextInput from "@/components/TextInput";
 import InputError from "@/components/InputError";

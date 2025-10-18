@@ -12,7 +12,7 @@ class ViewEmployeeTest extends TestCase
 {
     use Authenticated, RefreshDatabase;
 
-    public function testViewEmployee(): void
+    public function test_view_employee(): void
     {
         $employee = $this->authenticateAsEmployee();
 
@@ -23,7 +23,7 @@ class ViewEmployeeTest extends TestCase
         )->assertOk();
     }
 
-    public function testViewEmployeeTasksAsGuestGetsRedirectedToLoginPage(): void
+    public function test_view_employee_tasks_as_guest_gets_redirected_to_login_page(): void
     {
         $employee = Employee::factory()->createOne();
 

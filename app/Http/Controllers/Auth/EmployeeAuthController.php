@@ -12,9 +12,7 @@ use Inertia\Response;
 
 class EmployeeAuthController extends Controller
 {
-    public function __construct(private Inertia $inertia, private Hash $hash)
-    {
-    }
+    public function __construct(private Inertia $inertia, private Hash $hash) {}
 
     /**
      * Display the login view.

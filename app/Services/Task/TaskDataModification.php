@@ -10,9 +10,7 @@ class TaskDataModification
 {
     private const CURRENT_EMPLOYEE_PRONOUN = 'You';
 
-    public function __construct(private Auth $auth, private EmployeeService $employeeService)
-    {
-    }
+    public function __construct(private Auth $auth, private EmployeeService $employeeService) {}
 
     public function modify(LengthAwarePaginator $tasks): void
     {

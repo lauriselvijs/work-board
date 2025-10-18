@@ -17,7 +17,7 @@ class FilterTaskTest extends TestCase
 
     private Employee $employee;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
 
@@ -27,7 +27,7 @@ class FilterTaskTest extends TestCase
     /**
      * @dataProvider provideTaskFilterData
      */
-    public function testTaskFilter(string $queryKey, string $queryValue, string $taskTitle, int $taskCount): void
+    public function test_task_filter(string $queryKey, string $queryValue, string $taskTitle, int $taskCount): void
     {
         $secondTaskTitle = 'bbbb';
 
@@ -57,7 +57,7 @@ class FilterTaskTest extends TestCase
         ];
     }
 
-    public function testFilterUnsignedTasks(): void
+    public function test_filter_unsigned_tasks(): void
     {
         Task::factory()->createOne(['assigned_to' => null]);
 
@@ -73,7 +73,7 @@ class FilterTaskTest extends TestCase
         )->assertOk();
     }
 
-    public function testSearchFilterAndSortTaskByEmployeeInDescendingOrder(): void
+    public function test_search_filter_and_sort_task_by_employee_in_descending_order(): void
     {
         $firstTaskTitle = 'aaaa';
         $secondTaskTitle = $firstTaskTitle.'aaaa';

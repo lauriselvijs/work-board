@@ -10,8 +10,7 @@ class DashboardChartData
     public function __construct(
         private DashboardValidator $dashboardValidator,
         private DashboardDataTransformer $dashboardDataTransformer
-    ) {
-    }
+    ) {}
 
     public function get(string|array|null $year): array
     {

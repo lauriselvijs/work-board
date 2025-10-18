@@ -10,8 +10,7 @@ class EmployeeQuery
     public function __construct(
         private Employee $employee,
         private EmployeeQueryParamsValidation $employeeQueryParamsValidation
-    ) {
-    }
+    ) {}
 
     public function build(array $validatedParams): ScoutBuilder
     {

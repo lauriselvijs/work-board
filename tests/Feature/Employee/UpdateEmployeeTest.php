@@ -13,7 +13,7 @@ class UpdateEmployeeTest extends TestCase
 {
     use Authenticated, RefreshDatabase, WithFaker;
 
-    public function testUpdateEmployee(): void
+    public function test_update_employee(): void
     {
         $employee = $this->authenticateAsEmployee();
 
@@ -44,7 +44,7 @@ class UpdateEmployeeTest extends TestCase
         )->assertOk();
     }
 
-    public function testForbidEmployeeUpdateAnotherEmployee(): void
+    public function test_forbid_employee_update_another_employee(): void
     {
         $this->authenticateAsEmployee();
         $employee2 = Employee::factory()->createOne();
@@ -60,7 +60,7 @@ class UpdateEmployeeTest extends TestCase
         $response->assertForbidden();
     }
 
-    public function testUpdateEmployeeAsGuestGetsRedirectedToLoginPage(): void
+    public function test_update_employee_as_guest_gets_redirected_to_login_page(): void
     {
         $employee = Employee::factory()->createOne();
         $newEmployeeData = Employee::factory()->make()->toArray();

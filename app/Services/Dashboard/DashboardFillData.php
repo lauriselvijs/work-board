@@ -6,9 +6,7 @@ use Illuminate\Support\Collection;
 
 class DashboardFillData
 {
-    public function __construct(private DashboardQuery $dashboardQuery)
-    {
-    }
+    public function __construct(private DashboardQuery $dashboardQuery) {}
 
     public function withIntervalValuesForModelAttribute(Collection $interval, Collection $data, $modelAttribute)
     {

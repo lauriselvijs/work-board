@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Employee } from "@/types/Employee";
 import { useForm } from "@inertiajs/react";
 import { ChangeEvent, FormEventHandler, useEffect } from "react";

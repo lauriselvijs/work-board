@@ -11,8 +11,7 @@ class DashboardQuery
     public function __construct(
         private DashboardValidator $DashboardValidator,
         private DashboardChartPeriod $dashboardChartPeriod
-    ) {
-    }
+    ) {}
 
     /**
      * Get model data

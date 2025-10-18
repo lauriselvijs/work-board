@@ -10,6 +10,11 @@ import tailwindConfig from "../../tailwind.config";
 
 import AppLayout from "@/layouts/AppLayout";
 import { Page } from "@/types";
+import { configureEcho } from '@laravel/echo-react';
+
+configureEcho({
+    broadcaster: 'reverb',
+});
 
 const fullConfig = resolveConfig(tailwindConfig);
 

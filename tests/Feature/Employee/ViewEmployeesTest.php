@@ -12,7 +12,7 @@ class ViewEmployeesTest extends TestCase
 {
     use Authenticated, RefreshDatabase;
 
-    public function testViewEmployees(): void
+    public function test_view_employees(): void
     {
         $this->authenticateAsEmployee();
 
@@ -25,7 +25,7 @@ class ViewEmployeesTest extends TestCase
         )->assertOk();
     }
 
-    public function testViewEmployeesAsGuestGetsRedirectedToLoginPage(): void
+    public function test_view_employees_as_guest_gets_redirected_to_login_page(): void
     {
         $response = $this->get(route('employees.index'));
 

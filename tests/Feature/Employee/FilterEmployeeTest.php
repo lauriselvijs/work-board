@@ -18,7 +18,7 @@ class FilterEmployeeTest extends TestCase
     /**
      * @dataProvider provideEmployeeFilterData
      */
-    public function testEmployeeFilter(string $queryKey, string $queryValue, string $employeeName, int $employeeCount): void
+    public function test_employee_filter(string $queryKey, string $queryValue, string $employeeName, int $employeeCount): void
     {
         $secondEmployeeName = 'bbbb';
 
@@ -49,7 +49,7 @@ class FilterEmployeeTest extends TestCase
         ];
     }
 
-    public function testSearchFilterAndSortEmployeesDescendingOrder(): void
+    public function test_search_filter_and_sort_employees_descending_order(): void
     {
         $firstEmployeeName = 'aaaa';
         $secondEmployeeName = $firstEmployeeName.'aaaa';

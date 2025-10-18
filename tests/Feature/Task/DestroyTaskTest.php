@@ -15,14 +15,14 @@ class DestroyTaskTest extends TestCase
 
     private Employee $employee;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
 
         $this->employee = $this->authenticateAsEmployee();
     }
 
-    public function testForbidToDestroyTaskIfNotOwnedByEmployee(): void
+    public function test_forbid_to_destroy_task_if_not_owned_by_employee(): void
     {
         $task = Task::factory()->createOne();
 
@@ -34,7 +34,7 @@ class DestroyTaskTest extends TestCase
             ->assertForbidden();
     }
 
-    public function testForbidToDestroyTaskIfGuestAndRedirectToLoginPage(): void
+    public function test_forbid_to_destroy_task_if_guest_and_redirect_to_login_page(): void
     {
         $task = Task::factory()->createOne();
         $this->actingAsGuest();
@@ -44,7 +44,7 @@ class DestroyTaskTest extends TestCase
         $response->assertRedirect(route('employee.login'));
     }
 
-    public function testDestroyTask()
+    public function test_destroy_task()
     {
         $task = Task::factory()->createOne();
 

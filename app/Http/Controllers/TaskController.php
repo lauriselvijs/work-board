@@ -10,9 +10,7 @@ use Illuminate\Http\RedirectResponse;
 
 class TaskController extends Controller
 {
-    public function __construct(private TaskService $taskService, private Task $task)
-    {
-    }
+    public function __construct(private TaskService $taskService, private Task $task) {}
 
     /**
      * Store a newly created resource in storage.

@@ -6,9 +6,7 @@ class DashboardService
 {
     public final const QUERY_YEAR_KEY = 'year';
 
-    public function __construct(private DashboardChartData $dashboardChartData)
-    {
-    }
+    public function __construct(private DashboardChartData $dashboardChartData) {}
 
     public function getData(string|array|null $year)
     {

@@ -15,14 +15,14 @@ class UpdateTaskTest extends TestCase
 
     private Employee $employee;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
 
         $this->employee = $this->authenticateAsEmployee();
     }
 
-    public function testUpdateTask()
+    public function test_update_task()
     {
         $task = Task::factory()->createOne();
 
@@ -45,7 +45,7 @@ class UpdateTaskTest extends TestCase
         )->assertOk();
     }
 
-    public function testForbidToUpdateTaskIfNotOwnedByEmployee(): void
+    public function test_forbid_to_update_task_if_not_owned_by_employee(): void
     {
         $task = Task::factory()->createOne();
 
@@ -59,7 +59,7 @@ class UpdateTaskTest extends TestCase
             ->assertForbidden();
     }
 
-    public function testForbidToUpdateTaskIfGuestAndRedirectToLoginPage(): void
+    public function test_forbid_to_update_task_if_guest_and_redirect_to_login_page(): void
     {
         $task = Task::factory()->createOne();
         $newTaskData = Task::factory()->makeOne()->toArray();

@@ -14,14 +14,14 @@ class ViewEmployeeTasksTest extends TestCase
 
     private Employee $employee;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
 
         $this->employee = $this->authenticateAsEmployee();
     }
 
-    public function testShowEmployeeTasks(): void
+    public function test_show_employee_tasks(): void
     {
         $response = $this->get(route('employee.tasks', $this->employee));
 

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { ChangeEvent, FormEventHandler, useEffect, useState } from "react";
 import { useForm } from "laravel-precognition-react-inertia";
 import { Option, PhoneInput } from "@/types/Components";

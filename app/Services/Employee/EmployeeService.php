@@ -17,8 +17,7 @@ class EmployeeService
         private EmployeeQueryParamsValidation $employeeQueryParamsValidation,
         private EmployeeQuery $employeeQuery,
         private EmployeePagination $employeePagination
-    ) {
-    }
+    ) {}
 
     public function filter(array $queryParams = []): LengthAwarePaginator
     {

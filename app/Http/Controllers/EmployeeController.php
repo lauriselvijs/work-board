@@ -20,8 +20,7 @@ class EmployeeController extends Controller
         private EmployeeService $employeeService,
         private TaskService $taskService,
         private TaskQueryParamsValidation $taskQueryParamsValidation
-    ) {
-    }
+    ) {}
 
     /**
      * Display a listing of the resource.

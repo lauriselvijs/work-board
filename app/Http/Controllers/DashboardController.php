@@ -8,9 +8,7 @@ use Inertia\Inertia;
 
 class DashboardController extends Controller
 {
-    public function __construct(private Inertia $inertia, private DashboardService $dashboardService)
-    {
-    }
+    public function __construct(private Inertia $inertia, private DashboardService $dashboardService) {}
 
     public function __invoke(Request $request)
     {

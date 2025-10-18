@@ -13,8 +13,7 @@ class TaskQuery
         private Task $task,
         private TaskQueryParamsValidation $taskQueryParamsValidation,
         private Auth $auth
-    ) {
-    }
+    ) {}
 
     public function build(Employee $employee, array $validatedParams): Builder
     {

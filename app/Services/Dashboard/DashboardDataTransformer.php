@@ -10,8 +10,7 @@ class DashboardDataTransformer
     public function __construct(
         private DashboardFillData $dashboardFillData,
         private DashboardQuery $dashboardQuery,
-    ) {
-    }
+    ) {}
 
     public function transformYears(Collection $years): Collection
     {

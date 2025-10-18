@@ -23,7 +23,7 @@ class CreateEmployeeTest extends TestCase
         return $employeeData;
     }
 
-    public function testCreateEmployee(): void
+    public function test_create_employee(): void
     {
         $employeeData = $this->employeeFakeWithPassword();
 
@@ -59,7 +59,7 @@ class CreateEmployeeTest extends TestCase
         $this->assertSame($employeeData['password'], $employee->password);
     }
 
-    public function testValidatesEmployeeRegistrationFormWithPrecognition()
+    public function test_validates_employee_registration_form_with_precognition()
     {
         $employeeData = $this->employeeFakeWithPassword();
 

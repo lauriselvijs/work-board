@@ -17,14 +17,14 @@ class StoreTaskTest extends TestCase
 
     private Employee $employee;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
 
         $this->employee = $this->authenticateAsEmployee();
     }
 
-    public function testStoreTask()
+    public function test_store_task()
     {
         Notification::fake();
 
@@ -57,7 +57,7 @@ class StoreTaskTest extends TestCase
         )->assertOk();
     }
 
-    public function testForbidToStoreTaskIfGuestAndRedirectToLoginPage(): void
+    public function test_forbid_to_store_task_if_guest_and_redirect_to_login_page(): void
     {
         $newTaskData = Task::factory()->makeOne()->toArray();
         $this->actingAsGuest();

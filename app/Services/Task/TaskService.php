@@ -15,8 +15,7 @@ class TaskService
         private TaskQuery $taskQuery,
         private TaskDataModification $taskDataModification,
         private TaskPagination $taskPagination
-    ) {
-    }
+    ) {}
 
     public function filter(Employee $employee, array $queryParams = [], ...$rest): LengthAwarePaginator
     {
