@@ -13,9 +13,4 @@ trait Authenticated
 
         return $employee;
     }
-
-    public function actingAsGuest($guard = null): static
-    {
-        return parent::actingAsGuest($guard);
-    }
 }
