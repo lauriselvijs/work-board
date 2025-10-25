@@ -1,4 +1,7 @@
 name: Build and Test Docker Images
+permissions:
+  contents: read
+  packages: write
 on:
   push:
     branches: [main, 1.x]
@@ -112,7 +115,7 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Pull app production test image
+      - name: Pull app production image
         run: |
           docker pull $APP_PROD_IMAGE
 
@@ -123,14 +126,14 @@ jobs:
         run: |
           docker push ${{ env.APP_PROD_IMAGE_LATEST }}
 
-      - name: Cleanup app registry
+      - name: Cleanup production registry
         uses: actions/delete-package-versions@v5
         with:
           package-name: work-board-app-prod
           package-type: container
           min-versions-to-keep: 5
 
-      - name: Cleanup nginx registry
+      - name: Cleanup test registry
         uses: actions/delete-package-versions@v5
         with:
           package-name: work-board-app-test
