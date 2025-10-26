@@ -1,13 +1,9 @@
-import { ButtonHTMLAttributes, MouseEvent, ReactNode } from "react";
+import { ButtonHTMLAttributes, ReactNode } from "react";
 import { Menu } from "@headlessui/react";
 
 import { Navigation } from "@/types/Components";
 import { Link } from "@inertiajs/react";
 import Transition from "./Transition";
-
-type MouseOverBtnEvent = MouseEvent<HTMLButtonElement> & {
-    target: { click: () => void; dataset: { headlessuiState: string } };
-};
 
 const Dropdown = ({
     options,
@@ -36,15 +32,8 @@ const Dropdown = ({
         </Menu.Items>
     );
 
-    const onDropdownBtnClick = (event: MouseOverBtnEvent) => {
-        if (!event.target.dataset.headlessuiState) {
-            event.target.click();
-        }
-    };
-
     const renderBtn = (
         <Menu.Button
-            onMouseOver={onDropdownBtnClick}
             {...btnProps}
             disabled={btnDisabled}
             className={`primary-link ${btnClassName} ui-open:font-semibold`}
