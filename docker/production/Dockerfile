@@ -58,8 +58,10 @@ COPY . /var/www/html
 
 # Install dependencies
 RUN composer install --optimize-autoloader
-RUN npm install && npm run build
 
+COPY .env.build /var/www/html/.env
+RUN npm install && npm run build
+RUN rm -f /var/www/html/.env
 # Copy Supervisor
 COPY ./docker/production/supervisord.conf /etc/supervisord.conf
 
