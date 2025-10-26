@@ -32,7 +32,9 @@ export const useTaskForm = (
         setDefaults,
     } = useForm(
         isEdit ? "put" : "post",
-        isEdit ? route("tasks.update", taskToUpdate) : route("tasks.store"),
+        isEdit
+            ? route("tasks.update", { task: taskToUpdate.id })
+            : route("tasks.store"),
         initialFormData
     );
 

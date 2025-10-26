@@ -105,7 +105,7 @@ const Task = ({
             linkType="primary-button"
             type="button"
             as="button"
-            href={route("tasks.update", task)}
+            href={route("tasks.update", { task: task.id })}
             method="put"
             data={{
                 ...task,
@@ -142,7 +142,7 @@ const Task = ({
                     preserveState
                     method="delete"
                     linkType="primary-button"
-                    href={route("tasks.destroy", task)}
+                    href={route("tasks.destroy", { task: task.id })}
                 >
                     Delete
                 </NavLink>

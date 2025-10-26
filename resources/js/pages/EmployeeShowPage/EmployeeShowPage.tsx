@@ -42,7 +42,7 @@ const EmployeeShowPage = ({ employee }: PageProps<{ employee: Employee }>) => {
                     linkType="primary-button"
                     as="button"
                     role="button"
-                    href={route("employees.destroy", employee)}
+                    href={route("employees.destroy", { employee: employee.id })}
                     method="delete"
                 >
                     Delete

@@ -44,7 +44,7 @@ export const useEmployeeForm = (employeeToUpdate?: Employee) => {
     } = useForm(
         isEdit ? "put" : "post",
         isEdit
-            ? route("employees.update", employeeToUpdate)
+            ? route("employees.update", { employee: employeeToUpdate.id })
             : route("employees.store"),
         initialFormData
     );

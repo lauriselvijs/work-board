@@ -1,7 +1,7 @@
 import "./bootstrap";
 import "../scss/app.scss";
 
-import { createRoot } from "react-dom/client";
+import { hydrateRoot } from "react-dom/client";
 import { createInertiaApp } from "@inertiajs/react";
 import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
 import resolveConfig from "tailwindcss/resolveConfig";
@@ -10,10 +10,10 @@ import tailwindConfig from "../../tailwind.config";
 
 import AppLayout from "@/layouts/AppLayout";
 import { Page } from "@/types";
-import { configureEcho } from '@laravel/echo-react';
+import { configureEcho } from "@laravel/echo-react";
 
 configureEcho({
-    broadcaster: 'reverb',
+    broadcaster: "reverb",
 });
 
 const fullConfig = resolveConfig(tailwindConfig);
@@ -40,9 +40,7 @@ createInertiaApp({
         return page;
     },
     setup({ el, App, props }) {
-        const root = createRoot(el);
-
-        root.render(<App {...props} />);
+        hydrateRoot(el, <App {...props} />);
     },
     progress: {
         color:

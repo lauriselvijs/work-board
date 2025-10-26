@@ -2,7 +2,8 @@ import ReactDOMServer from "react-dom/server";
 import { createInertiaApp } from "@inertiajs/react";
 import createServer from "@inertiajs/react/server";
 import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
-import route from "ziggy-js";
+// @ts-expect-error
+import { route } from "ziggy-js";
 
 import { Page } from "./types";
 import AppLayout from "./layouts/AppLayout";
@@ -31,8 +32,8 @@ createServer((page) =>
             return page;
         },
         setup: ({ App, props }) => {
+            // @ts-expect-error
             global.route = (name, params, absolute) =>
-                // @ts-expect-error
                 route(name, params, absolute, {
                     // @ts-expect-error
                     ...page.props.ziggy,
