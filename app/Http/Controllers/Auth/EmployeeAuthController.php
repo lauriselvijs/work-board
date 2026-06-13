@@ -35,7 +35,7 @@ class EmployeeAuthController extends Controller
         $request->session()->regenerate();
         $request->session()->flash('message', __('Logged in'));
 
-        return redirect()->intended('dashboard');
+        return redirect()->intended(route('dashboard'));
     }
 
     /**
