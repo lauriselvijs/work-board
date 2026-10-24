@@ -120,3 +120,4 @@ Key configurations in `.env`:
 ## 📄 License
 
 [MIT License](LICENSE)
+
